@@ -1,0 +1,29 @@
+﻿@page "/AllProducts"
+@using ShopAPI
+
+@inject ClientAPI _client
+
+<h3>All products</h3>
+
+@if (_products != null)
+{
+    <ul>
+        @foreach (var item in _products)
+        {
+            <li>
+                <span>@item.Title @item.Price</span>
+            </li>
+        }
+    </ul>
+}
+
+
+@code {
+    private List<Product> _products;
+    
+    protected override async void OnInitialized()
+    {
+        await base.OnInitializedAsync();
+        _products  = await _client.GetProducts();
+    }
+}

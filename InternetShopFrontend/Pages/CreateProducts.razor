@@ -1,0 +1,25 @@
+﻿@page "/CreateProducts"
+@using ShopAPI
+
+@inject ClientAPI _client
+
+<h3>CreateProducts</h3>
+
+<EditForm Model="_model" OnValidSubmit="ProcessValidForm">
+ <DataAnnotationsValidator/>
+      Title: <InputText @bind-Value="_model.Title"/>
+      Price: <InputNumber @bind-Value="_model.Price"/>
+ 
+ <br/> <input type="submit" value="Add">
+ <ValidationSummary/>
+</EditForm>
+
+@code {
+
+    public async void ProcessValidForm()
+    {
+        await _client.AddProduct(_model);
+    }
+
+    Product _model = new Product();
+}

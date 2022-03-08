@@ -1,0 +1,12 @@
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\bin\Debug\net6.0\ShopAPI.deps.json
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\bin\Debug\net6.0\ShopAPI.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\bin\Debug\net6.0\ShopAPI.pdb
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ShopAPI.csproj.AssemblyReference.cache
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ShopAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ShopAPI.AssemblyInfoInputs.cache
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ShopAPI.AssemblyInfo.cs
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ShopAPI.csproj.CoreCompileInputs.cache
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ShopAPI.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\refint\ShopAPI.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ShopAPI.pdb
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\ShopAPI\obj\Debug\net6.0\ref\ShopAPI.dll
