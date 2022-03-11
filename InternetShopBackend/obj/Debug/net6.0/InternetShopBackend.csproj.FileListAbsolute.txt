@@ -61,3 +61,5 @@ C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\obj\Debug\net6.0\InternetShopBackend.pdb
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\obj\Debug\net6.0\InternetShopBackend.genruntimeconfig.cache
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\obj\Debug\net6.0\ref\InternetShopBackend.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\ShopAPI.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\ShopAPI.pdb

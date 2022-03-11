@@ -9,7 +9,8 @@
       "InternetShopBackend/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "7.0.0-preview.1.22076.6",
-          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.0-preview.1.22076.6"
+          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.0-preview.1.22076.6",
+          "ShopAPI": "1.0.0"
         },
         "runtime": {
           "InternetShopBackend.dll": {}
@@ -392,6 +393,11 @@
             "fileVersion": "7.0.22.7608"
           }
         }
+      },
+      "ShopAPI/1.0.0": {
+        "runtime": {
+          "ShopAPI.dll": {}
+        }
       }
     }
   },
@@ -603,6 +609,11 @@
       "sha512": "sha512-/BA7B+nU9VrGNM6eKh06gYdxITho7Hber7yPwR8a+xt1FkNCS6K7JYgKQm1/HiSY7ynigeMmihPIXlF60QhxYg==",
       "path": "system.text.json/7.0.0-preview.1.22076.8",
       "hashPath": "system.text.json.7.0.0-preview.1.22076.8.nupkg.sha512"
+    },
+    "ShopAPI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

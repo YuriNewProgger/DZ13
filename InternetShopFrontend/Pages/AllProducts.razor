@@ -21,7 +21,7 @@
 @code {
     private List<Product> _products;
     
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
         _products  = await _client.GetProducts();

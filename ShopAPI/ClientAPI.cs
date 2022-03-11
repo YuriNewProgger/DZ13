@@ -9,12 +9,12 @@ public class ClientAPI
 
     public ClientAPI(string? host)
     {
-        _host = host ?? "http://localhost:5045";
+        _host = host ?? "https://localhost:7045";
         _client = new HttpClient();
     }
     
     public Task<List<Product>> GetProducts() =>
-        _client.GetFromJsonAsync<List<Product>>($"{_host}/Products");
+        _client.GetFromJsonAsync<List<Product>>($"{_host}/Products/GetProducts");
 
     public Task AddProduct(Product product) =>
         _client.PostAsJsonAsync($"{_host}/AddProducts", product);
