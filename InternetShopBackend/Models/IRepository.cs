@@ -3,7 +3,7 @@
 public interface IRepository<TEntity> where TEntity : class
 {
     List<TEntity> Get();
-    void Add(TEntity entity);
+    int Add(TEntity entity);
     void Update(TEntity entity);
     void Delete(TEntity entity);
 }

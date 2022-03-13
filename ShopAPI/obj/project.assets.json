@@ -9,7 +9,7 @@
   },
   "packageFolders": {
     "C:\\Users\\Dampel\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
@@ -21,7 +21,7 @@
       "outputPath": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\ShopAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
       ],
       "configFilePaths": [
         "C:\\Users\\Dampel\\AppData\\Roaming\\NuGet\\NuGet.Config",

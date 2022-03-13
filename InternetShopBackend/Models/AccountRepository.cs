@@ -2,17 +2,18 @@
 
 namespace InternetShopBackend.Models;
 
-public class AccountRepository : IRepository<Account>
+public class AccountRepository : IAccountRepository
 {
     public AppDbContext Context;
     public AccountRepository(AppDbContext _context) => Context = _context;
 
     public List<Account> Get() => Context.Accounts.ToList();
 
-    public void Add(Account account)
+    public int Add(Account account)
     {
         Context.Accounts.Add(account);
-        Context.SaveChanges();
+        int result = Context.SaveChanges();
+        return result;
     } 
 
     public void Update(Account account)
@@ -20,10 +21,12 @@ public class AccountRepository : IRepository<Account>
         Context.Entry(account).State = EntityState.Modified;
         Context.SaveChanges();
     }
-
     public void Delete(Account account)
     {
         Context.Entry(account).State = EntityState.Deleted;
         Context.SaveChanges();
     }
+
+    public Account GetAccountById(int id) => Context.Accounts.Where(i => i.Id == id).FirstOrDefault();
+    
 }

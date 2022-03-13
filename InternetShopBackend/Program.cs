@@ -11,6 +11,8 @@ var dbPath = "myapp.db";
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlite($"Data Source={dbPath}"));
 
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+
 builder.Services.AddCors();
 
 var app = builder.Build();

@@ -1,0 +1,25 @@
+﻿@page "/CreateAccount"
+@using Microsoft.AspNetCore.Components
+@using ShopAPI
+
+@inject ClientAPI _client
+
+<h3>Create account</h3>
+
+<EditForm Model="_account" OnValidSubmit="ProcessValidForm">
+ <DataAnnotationsValidator/>
+      Login: <InputText @bind-Value="_account.Login"/>
+      Password: <InputText @bind-Value="_account.Password"/>
+ 
+ <br/> <input type="submit" value="Create">
+ <ValidationSummary/>
+</EditForm>
+
+@code {
+    public void ProcessValidForm()
+    {
+        _client.AddAccount(_account);
+    }
+    
+    Account _account = new Account();
+}
