@@ -200,15 +200,15 @@
       "mscorlib.dll": "sha256-c1dVVfosFaf5aiS3brr2amBi1Ue0kg6mqECzmCbGyfA=",
       "netstandard.dll": "sha256-+9Yr\/gSP3tCZAMbOdAcGhHGuMcyg\/AaxVKtt3tGsvao=",
       "System.Private.CoreLib.dll": "sha256-SnxOe5QK250duVAQOw0iWr1sODhUuVEUykExQyQ\/WSk=",
-      "ShopAPI.dll": "sha256-ytdyjww1BLSDT\/4hTjYLmdwqCLn+mR+axzZA6dKPMoA=",
-      "InternetShopFrontend.dll": "sha256-izlwX\/viak5mOoNJy\/Xs4cDM\/hf8gFCbPdbJTL9k174="
+      "ShopAPI.dll": "sha256-CONCEGME9fH+2x8EtUl4uaDwffDvBrYkw5zntrEFSwg=",
+      "InternetShopFrontend.dll": "sha256-\/vcJjzVZyi8H6EI+q3SGvq0H2I58XoFV8oO0M3V7JOA="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "ShopAPI.pdb": "sha256-MzpEqmlWEOZGOJ\/eFaV7oniJGQZBik4ZVVXMHUUfSD8=",
-      "InternetShopFrontend.pdb": "sha256-xynpr9qIfnvG61svKiTtiat\/V3WRM7mGaYnXK\/CLHl8="
+      "ShopAPI.pdb": "sha256-4x9MqyVmBTh\/ibX0rzc\/0\/wZvUWzSMmn0lAdPW6cLL0=",
+      "InternetShopFrontend.pdb": "sha256-GKKXy\/3cpvs15QGutWTX\/n+NFxu9Tp9fFNsziMzZvjQ="
     },
     "runtime": {
       "dotnet.6.0.2.ntxea6moul.js": "sha256-wbTVn69TU0+WI83iB+kky8tf\/BjZdYJeM0rUP96ur\/c=",
