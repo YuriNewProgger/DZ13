@@ -21,7 +21,12 @@ public class ClientAPI
     
     public void AddAccount(AccountRequestModel _account) =>
         _client.PostAsJsonAsync($"{_host}/Accounts/AddAccount", _account);
+
+    public async Task<HttpResponseMessage> Authorization(AccountRequestModel _account) =>
+        await _client.PostAsJsonAsync($"{_host}/Accounts/Authorization", _account);
     
-    public Task Authorization(AccountRequestModel _account) =>
-        _client.PostAsJsonAsync($"{_host}/Accounts/Authorization", _account);
+    public Task<List<Account>> GetAccounts() =>
+        _client.GetFromJsonAsync<List<Account>>($"{_host}/Accounts/GetAccounts");
+    
+        
 }

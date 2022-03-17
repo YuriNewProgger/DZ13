@@ -19,15 +19,28 @@
 </EditForm>
 }
 
+@if (currentAccount != null)
+{
+    <div>Name: @currentAccount.Name</div>
+    <div>Email: @currentAccount.Email</div>
+}
+
 @code {
     public bool IsAuthorized = false;
-    
+
     public async Task ProcessValidForm()
     {
-        await _client.Authorization(_account);
+        var response = await _client.Authorization(_account);
 
-        IsAuthorized = true;
+        if (response.IsSuccessStatusCode)
+        {
+            var accounts = await _client.GetAccounts();
+            currentAccount = accounts.Where(i => i.Login == _account.Login).FirstOrDefault();
+            IsAuthorized = true;
+        }
+            
     }
-    
+
+    Account currentAccount;
     AccountRequestModel _account = new AccountRequestModel();
 }
