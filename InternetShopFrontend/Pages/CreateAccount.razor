@@ -12,7 +12,7 @@
       Password: <InputText @bind-Value="_account.Password"/>
       Name: <InputText @bind-Value="_account.Name"/>
       Email: <InputText @bind-Value="_account.Email"/>
- 
+
  <br/> <input type="submit" value="Create">
  <ValidationSummary/>
 </EditForm>
@@ -23,5 +23,6 @@
         _client.AddAccount(_account);
     }
     
-    Account _account = new Account();
+    //Account _account = new Account();
+    AccountRequestModel _account = new AccountRequestModel();
 }

@@ -1,0 +1,33 @@
+﻿@page "/Login"
+@using ShopAPI
+@using Microsoft.AspNetCore.Components
+
+@inject ClientAPI _client
+
+<h3>Login</h3>
+
+@if (IsAuthorized)
+{
+    <span>Succes</span>
+}else{
+<EditForm Model="_account" OnValidSubmit="ProcessValidForm">
+    <DataAnnotationsValidator/>
+    Login: <InputText @bind-Value="_account.Login"/>
+    Password: <InputText @bind-Value="_account.Password"/>
+    <br/> <input type="submit" value="SignIn">
+    <ValidationSummary/>
+</EditForm>
+}
+
+@code {
+    public bool IsAuthorized = false;
+    
+    public async Task ProcessValidForm()
+    {
+        await _client.Authorization(_account);
+
+        IsAuthorized = true;
+    }
+    
+    AccountRequestModel _account = new AccountRequestModel();
+}

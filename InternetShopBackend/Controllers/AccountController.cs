@@ -1,4 +1,5 @@
 ﻿using InternetShopBackend.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternetShopBackend.Controllers;
@@ -8,33 +9,52 @@ namespace InternetShopBackend.Controllers;
 public class AccountController : ControllerBase
 {
     private IAccountRepository accRepository;
+    public IPasswordHasher<AccountRequestModel> _hasher;
 
-    public AccountController(IAccountRepository _accountRepository)
+    public AccountController(IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher)
     { 
         accRepository = _accountRepository;
+        _hasher = hasher;
     }
 
     [HttpGet("GetAccounts")]
     public IEnumerable<Account> GetAccount() => accRepository.Get();
     
+    
     [HttpPost("AddAccount")]
-    public ActionResult<Account> AddAccount(Account _account)
+    public ActionResult<Account> AddAccount(AccountRequestModel accountRequestModel)
     {
-        _account.Id = 0;
-        int result = accRepository.Add(_account);
-
-        if (result == 0)
+        HashModel hashModel = new HashModel(_hasher);
+        Account _accountDomainModel = hashModel.GetAccountDomainModel(accountRequestModel);
+        
+        try
         {
-            return new ObjectResult(result)
+            accRepository.Add(_accountDomainModel);
+        }
+        catch (Exception ex)
+        {
+            return new ContentResult()
             {
-                DeclaredType = typeof(Account),
-                StatusCode = StatusCodes.Status400BadRequest
+                StatusCode = 422,
+                Content = "Error"
             };
         }
-        return new ObjectResult(result)
-        {
-            DeclaredType = typeof(Account),
-            StatusCode = StatusCodes.Status201Created
-        };
+        return Ok();
     }
+
+    [HttpPost("Authorization")]
+    public ActionResult<Account> Authorization(AccountRequestModel _accountRequestModel)
+    {
+        Console.WriteLine("In Authorization");
+        Account account = accRepository.Get().Where(i => i.Login == _accountRequestModel.Login).FirstOrDefault();
+
+        PasswordVerificationResult result = _hasher.VerifyHashedPassword(_accountRequestModel, account.HashePassword,
+            _accountRequestModel.Password);
+
+        if (result == PasswordVerificationResult.Failed)
+            return Unauthorized();
+
+        return account;
+    }
+
 }

@@ -1,7 +1,9 @@
 using InternetShopBackend.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ShopAPI;
+using Account = InternetShopBackend.Models.Account;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlite($"Data Source={dbPath}"));
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddSingleton<IPasswordHasher<AccountRequestModel>, PasswordHasher<AccountRequestModel>>();
 
 builder.Services.AddCors();
 
@@ -25,16 +28,5 @@ app.UseCors(policy => policy
 app.MapControllers();
 
 app.MapGet("/", () => "Hello");
-//app.MapGet("/Products", async ([FromServices]AppDbContext context) => await context.Products.ToListAsync());
-// app.MapPost("/AddProducts", ([FromBody]Product product, [FromServices]AppDbContext context) =>
-// {
-//     product.Id = context.Products.ToList().Count == 0
-//         ? 0
-//         : context.Products.ToList().OrderByDescending(i => i.Id).FirstOrDefault().Id + 1;
-//
-//
-//     context.Products.Add(product);
-//     context.SaveChanges();
-// });
 
 app.Run();

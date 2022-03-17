@@ -19,6 +19,9 @@ public class ClientAPI
     public Task AddProduct(Product product) =>
         _client.PostAsJsonAsync($"{_host}/AddProducts", product);
     
-    public void AddAccount(Account _account) =>
+    public void AddAccount(AccountRequestModel _account) =>
         _client.PostAsJsonAsync($"{_host}/Accounts/AddAccount", _account);
+    
+    public Task Authorization(AccountRequestModel _account) =>
+        _client.PostAsJsonAsync($"{_host}/Accounts/Authorization", _account);
 }
