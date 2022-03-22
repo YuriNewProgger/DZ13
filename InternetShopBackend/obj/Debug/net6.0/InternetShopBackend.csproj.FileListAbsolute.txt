@@ -63,3 +63,12 @@ C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\obj\Debug\net6.0\ref\InternetShopBackend.dll
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\ShopAPI.dll
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\ShopAPI.pdb
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Sinks.File.dll

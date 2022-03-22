@@ -57,6 +57,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[7.0.0-preview.1.22076.6, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[6.0.0-dev-00265, )"
             }
           },
           "imports": [

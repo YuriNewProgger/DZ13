@@ -33,11 +33,7 @@ public class AccountController : ControllerBase
         }
         catch (Exception ex)
         {
-            return new ContentResult()
-            {
-                StatusCode = 422,
-                Content = "Error"
-            };
+            return Unauthorized();
         }
         return Ok();
     }
