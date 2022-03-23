@@ -22,7 +22,8 @@ builder.Services.AddDbContext<AppDbContext>(
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddSingleton<IPasswordHasher<AccountRequestModel>, PasswordHasher<AccountRequestModel>>();
 builder.Services.AddHttpLogging(option =>
-    option.LoggingFields = HttpLoggingFields.ResponseHeaders | HttpLoggingFields.RequestHeaders);
+    option.LoggingFields = HttpLoggingFields.ResponseHeaders | HttpLoggingFields.RequestHeaders | HttpLoggingFields.RequestBody 
+    | HttpLoggingFields.ResponseBody);
 
 builder.Host.UseSerilog((_, conf) => conf.WriteTo.Console());
 
