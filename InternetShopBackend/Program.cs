@@ -42,13 +42,6 @@ app.Use(async (HttpContext context, Func<Task> next) =>
             Log.Information($"Head {item.Key} - {item.Value}");
         Log.Information($"End log request");
 
-
-        
-        Log.Information($"Start log response");
-        foreach (var item in context.Request.Headers)
-            Log.Information($"Head {item.Key} - {item.Value}");
-        Log.Information($"End log response");
-        
         if (!context.Request.Headers.UserAgent.Contains("Edge"))
         {
             await context.Response.WriteAsync("Supported only Edge browser!");
@@ -57,6 +50,10 @@ app.Use(async (HttpContext context, Func<Task> next) =>
         else
         {
             await next();
+            Log.Information($"Start log response");
+            foreach (var item in context.Request.Headers)
+                Log.Information($"Head {item.Key} - {item.Value}");
+            Log.Information($"End log response");
         }
     }
 );
