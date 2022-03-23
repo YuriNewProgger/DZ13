@@ -2,6 +2,7 @@ using System.Buffers;
 using System.IO.Pipelines;
 using System.Text;
 using InternetShopBackend.Models;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<AppDbContext>(
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddSingleton<IPasswordHasher<AccountRequestModel>, PasswordHasher<AccountRequestModel>>();
+builder.Services.AddHttpLogging(option =>
+    option.LoggingFields = HttpLoggingFields.ResponseHeaders | HttpLoggingFields.RequestHeaders);
 
 builder.Host.UseSerilog((_, conf) => conf.WriteTo.Console());
 
@@ -34,26 +37,18 @@ app.UseCors(policy => policy
     .AllowCredentials());
 
 app.MapControllers();
+app.UseHttpLogging();
 
 app.Use(async (HttpContext context, Func<Task> next) =>
     {
-        Log.Information($"Start log request");
-        foreach (var item in context.Request.Headers)
-            Log.Information($"Head {item.Key} - {item.Value}");
-        Log.Information($"End log request");
 
-        if (!context.Request.Headers.UserAgent.Contains("Edge"))
+        if (context.Request.Headers.UserAgent.Contains("Edge"))
         {
             await context.Response.WriteAsync("Supported only Edge browser!");
-            return;
         }
         else
         {
             await next();
-            Log.Information($"Start log response");
-            foreach (var item in context.Request.Headers)
-                Log.Information($"Head {item.Key} - {item.Value}");
-            Log.Information($"End log response");
         }
     }
 );
