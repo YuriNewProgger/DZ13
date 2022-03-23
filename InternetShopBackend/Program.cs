@@ -35,9 +35,6 @@ app.UseCors(policy => policy
 
 app.MapControllers();
 
-app.MapGet("/", () => "Hello");
-app.MapGet("/Head", (HttpContext context) => context.Request.Headers);
-
 app.Use(async (HttpContext context, Func<Task> next) =>
     {
         Log.Information($"Start log request");
@@ -63,6 +60,11 @@ app.Use(async (HttpContext context, Func<Task> next) =>
         }
     }
 );
+
+app.MapGet("/", () => "Hello");
+app.MapGet("/Head", (HttpContext context) => context.Request.Headers);
+
+
 
 
 app.Run();
