@@ -10,11 +10,13 @@ public class AccountController : ControllerBase
 {
     private IAccountRepository accRepository;
     public IPasswordHasher<AccountRequestModel> _hasher;
+    public UnitOfWork _uow;
 
-    public AccountController(IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher)
+    public AccountController(IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher, UnitOfWork UOW)
     { 
         accRepository = _accountRepository;
         _hasher = hasher;
+        _uow = UOW;
     }
 
     [HttpGet("GetAccounts")]
@@ -29,7 +31,9 @@ public class AccountController : ControllerBase
         
         try
         {
-            accRepository.Add(_accountDomainModel);
+            //accRepository.Add(_accountDomainModel);
+            _uow.AccountRepository.Add(_accountDomainModel);
+            _uow.SaveChangeASync();
         }
         catch (Exception ex)
         {

@@ -17,7 +17,7 @@ public class AccountRepository : IAccountRepository
     public void Add(Account account)
     {
         Context.Accounts.Add(account);
-        Context.SaveChanges();
+        //Context.SaveChanges();
     } 
 
     public void Update(Account account)

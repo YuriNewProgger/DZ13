@@ -11,7 +11,7 @@
         @foreach (var item in _products)
         {
             <li>
-                <span>@item.Title @item.Price</span>
+                <span>@item.Title @item.Price <button class="btn btn-outline-success" @onclick="() => Buy(item)">Buy</button></span>
             </li>
         }
     </ul>
@@ -19,6 +19,11 @@
 
 
 @code {
+    public void Buy(Product _product)
+    {
+        //backet.AddProductToBasket(_product);
+    }
+    
     private List<Product> _products;
     
     protected override async Task OnInitializedAsync()
