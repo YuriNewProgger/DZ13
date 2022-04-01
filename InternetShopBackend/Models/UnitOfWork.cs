@@ -11,5 +11,7 @@ public class UnitOfWork
         Context = context;
     }
 
+    public List<Account> GetAccounts() => AccountRepository.Get();
+
     public Task SaveChangeASync() => Context.SaveChangesAsync();
 }

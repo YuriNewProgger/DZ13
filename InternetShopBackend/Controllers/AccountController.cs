@@ -8,19 +8,18 @@ namespace InternetShopBackend.Controllers;
 [ApiController]
 public class AccountController : ControllerBase
 {
-    private IAccountRepository accRepository;
     public IPasswordHasher<AccountRequestModel> _hasher;
     public UnitOfWork _uow;
 
     public AccountController(IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher, UnitOfWork UOW)
     { 
-        accRepository = _accountRepository;
+        //accRepository = _accountRepository;
         _hasher = hasher;
         _uow = UOW;
     }
 
     [HttpGet("GetAccounts")]
-    public IEnumerable<Account> GetAccount() => accRepository.Get();
+    public IEnumerable<Account> GetAccount() => _uow.GetAccounts();
     
     
     [HttpPost("AddAccount")]
@@ -46,7 +45,7 @@ public class AccountController : ControllerBase
     public ActionResult<Account> Authorization(AccountRequestModel _accountRequestModel)
     {
         Console.WriteLine("In Authorization");
-        Account account = accRepository.Get().Where(i => i.Login == _accountRequestModel.Login).FirstOrDefault();
+        Account account = _uow.GetAccounts().Where(i => i.Login == _accountRequestModel.Login).FirstOrDefault();
 
         PasswordVerificationResult result = _hasher.VerifyHashedPassword(_accountRequestModel, account.HashePassword,
             _accountRequestModel.Password);
