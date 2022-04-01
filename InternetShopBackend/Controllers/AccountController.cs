@@ -19,7 +19,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpGet("GetAccounts")]
-    public IEnumerable<Account> GetAccount() => _uow.GetAccounts();
+    public IEnumerable<Account> GetAccount() => _uow.AccountRepository.Get();
     
     
     [HttpPost("AddAccount")]
@@ -27,11 +27,12 @@ public class AccountController : ControllerBase
     {
         HashModel hashModel = new HashModel(_hasher);
         Account _accountDomainModel = hashModel.GetAccountDomainModel(accountRequestModel);
-        
+        Basket basket = new Basket();
+        basket.IdAcc = _accountDomainModel.Id;
         try
         {
-            //accRepository.Add(_accountDomainModel);
             _uow.AccountRepository.Add(_accountDomainModel);
+            _uow.BasketRepository.Add(basket);
             _uow.SaveChangeASync();
         }
         catch (Exception ex)
@@ -45,7 +46,7 @@ public class AccountController : ControllerBase
     public ActionResult<Account> Authorization(AccountRequestModel _accountRequestModel)
     {
         Console.WriteLine("In Authorization");
-        Account account = _uow.GetAccounts().Where(i => i.Login == _accountRequestModel.Login).FirstOrDefault();
+        Account account = _uow.AccountRepository.Get().Where(i => i.Login == _accountRequestModel.Login).FirstOrDefault();
 
         PasswordVerificationResult result = _hasher.VerifyHashedPassword(_accountRequestModel, account.HashePassword,
             _accountRequestModel.Password);

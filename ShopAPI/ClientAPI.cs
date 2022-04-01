@@ -28,5 +28,4 @@ public class ClientAPI
     public Task<List<Account>> GetAccounts() =>
         _client.GetFromJsonAsync<List<Account>>($"{_host}/Accounts/GetAccounts");
     
-        
 }

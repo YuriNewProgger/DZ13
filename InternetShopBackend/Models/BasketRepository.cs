@@ -12,6 +12,7 @@ public class BasketRepository : IBasketRepository
     }
 
     public List<Basket> Get() => _Context.Baskets.ToList();
+    public Basket GetBasketByIdAcc(int id) => _Context.Baskets.Where(i => i.IdAcc == id).FirstOrDefault();
 
     public void Add(Basket basket) => _Context.Baskets.Add(basket);
     
