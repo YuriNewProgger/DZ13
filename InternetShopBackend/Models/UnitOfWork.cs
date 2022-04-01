@@ -3,11 +3,13 @@
 public class UnitOfWork
 {
     public IAccountRepository AccountRepository { get; }
+    public IBasketRepository BasketRepository { get; }
     public AppDbContext Context { get; }
 
-    public UnitOfWork(IAccountRepository accountRepository, AppDbContext context)
+    public UnitOfWork(IAccountRepository accountRepository, IBasketRepository basketRepository, AppDbContext context)
     {
         AccountRepository = accountRepository;
+        BasketRepository = basketRepository;
         Context = context;
     }
 

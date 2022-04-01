@@ -21,6 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(
 
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddSingleton<IPasswordHasher<AccountRequestModel>, PasswordHasher<AccountRequestModel>>();
 builder.Services.AddHttpLogging(option =>
     option.LoggingFields = HttpLoggingFields.ResponseHeaders | HttpLoggingFields.RequestHeaders | HttpLoggingFields.RequestBody 
