@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net.Http.Headers;
+using System.Net.Http.Json;
 
 namespace ShopAPI;
 
@@ -22,9 +23,16 @@ public class ClientAPI
     public void AddAccount(AccountRequestModel _account) =>
         _client.PostAsJsonAsync($"{_host}/Accounts/AddAccount", _account);
 
-    public async Task<HttpResponseMessage> Authorization(AccountRequestModel _account) =>
-        await _client.PostAsJsonAsync($"{_host}/Accounts/Authorization", _account);
-    
+    public async Task<string> Login(AccountRequestModel _account)
+    {
+        var response = await _client.PostAsJsonAsync($"{_host}/Accounts/Login", _account);
+        response.EnsureSuccessStatusCode();
+        var token = await response.Content.ReadAsStringAsync();
+        _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+        return token;
+    }
+
     public Task<List<Account>> GetAccounts() =>
         _client.GetFromJsonAsync<List<Account>>($"{_host}/Accounts/GetAccounts");
     

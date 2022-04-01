@@ -2,12 +2,14 @@ using System.Buffers;
 using System.IO.Pipelines;
 using System.Text;
 using InternetShopBackend.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Account = InternetShopBackend.Models.Account;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
 
@@ -19,6 +21,7 @@ var dbPath = "myapp.db";
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlite($"Data Source={dbPath}"));
 
+builder.Services.AddSingleton<ServiceToken>();
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
@@ -31,7 +34,40 @@ builder.Host.UseSerilog((_, conf) => conf.WriteTo.Console());
 
 builder.Services.AddCors();
 
+JwtConfig jwtConfig = builder.Configuration
+    .GetSection("JwtConfig")
+    .Get<JwtConfig>();
+builder.Services.AddSingleton(jwtConfig);
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            IssuerSigningKey = new SymmetricSecurityKey(jwtConfig.SigningKeyBytes),
+            ValidateIssuerSigningKey = true,
+            ValidateLifetime = true,
+            RequireExpirationTime = true,
+            RequireSignedTokens = true,
+
+            ValidateAudience = true,
+            ValidateIssuer = true,
+            ValidAudiences = new[] { jwtConfig.Audience },
+            ValidIssuer = jwtConfig.Issuer
+        };
+    });
+builder.Services.AddAuthorization();
+
+
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseCors(policy => policy
     .AllowAnyMethod()

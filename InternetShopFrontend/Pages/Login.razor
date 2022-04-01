@@ -30,12 +30,10 @@
 
     public async Task ProcessValidForm()
     {
-        var response = await _client.Authorization(_account);
+        var response = await _client.Login(_account);
 
-        if (response.IsSuccessStatusCode)
+        if (!string.IsNullOrEmpty(response))
         {
-            var accounts = await _client.GetAccounts();
-            currentAccount = accounts.Where(i => i.Login == _account.Login).FirstOrDefault();
             IsAuthorized = true;
         }
             

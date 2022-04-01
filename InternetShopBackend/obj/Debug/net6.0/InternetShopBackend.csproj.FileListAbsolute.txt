@@ -72,3 +72,10 @@ C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Sinks.Console.dll
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopBackend\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

@@ -1,6 +1,10 @@
-﻿using InternetShopBackend.Models;
+﻿using System.Net.Http.Headers;
+using System.Security.Claims;
+using InternetShopBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace InternetShopBackend.Controllers;
 
@@ -8,20 +12,29 @@ namespace InternetShopBackend.Controllers;
 [ApiController]
 public class AccountController : ControllerBase
 {
-    public IPasswordHasher<AccountRequestModel> _hasher;
-    public UnitOfWork _uow;
+    private IPasswordHasher<AccountRequestModel> _hasher;
+    private UnitOfWork _uow;
+    private readonly ServiceToken _serviceToken;
 
-    public AccountController(IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher, UnitOfWork UOW)
-    { 
-        //accRepository = _accountRepository;
+    public AccountController(IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher,
+        UnitOfWork UOW, ServiceToken serviceToken)
+    {
         _hasher = hasher;
         _uow = UOW;
+        _serviceToken = serviceToken;
     }
 
+    //[Authorize]
     [HttpGet("GetAccounts")]
-    public IEnumerable<Account> GetAccount() => _uow.AccountRepository.Get();
-    
-    
+    public IEnumerable<Account> GetAccount()
+    {
+        var striId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var acc = _uow.AccountRepository.GetAccountById(int.Parse(striId));
+        Log.Information(acc.Name);
+        return _uow.AccountRepository.Get();
+    }
+
+
     [HttpPost("AddAccount")]
     public ActionResult<Account> AddAccount(AccountRequestModel accountRequestModel)
     {
@@ -39,14 +52,16 @@ public class AccountController : ControllerBase
         {
             return Unauthorized();
         }
+
         return Ok();
     }
 
-    [HttpPost("Authorization")]
-    public ActionResult<Account> Authorization(AccountRequestModel _accountRequestModel)
+    [HttpPost("Login")]
+    public ActionResult<string> Login(AccountRequestModel _accountRequestModel)
     {
         Console.WriteLine("In Authorization");
-        Account account = _uow.AccountRepository.Get().Where(i => i.Login == _accountRequestModel.Login).FirstOrDefault();
+        Account account = _uow.AccountRepository.Get().Where(i => i.Login == _accountRequestModel.Login)
+            .FirstOrDefault();
 
         PasswordVerificationResult result = _hasher.VerifyHashedPassword(_accountRequestModel, account.HashePassword,
             _accountRequestModel.Password);
@@ -54,7 +69,7 @@ public class AccountController : ControllerBase
         if (result == PasswordVerificationResult.Failed)
             return Unauthorized();
 
-        return account;
+        var token = _serviceToken.GenerateToken(account);
+        return token;
     }
-
 }
