@@ -11,6 +11,7 @@ using Account = InternetShopBackend.Models.Account;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using Serilog.Core;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,8 @@ var dbPath = "myapp.db";
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlite($"Data Source={dbPath}"));
 
+builder.Services.AddSingleton<LogResourceFilter>();
+builder.Services.AddSingleton<FilterException>();
 builder.Services.AddSingleton<ServiceToken>();
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();

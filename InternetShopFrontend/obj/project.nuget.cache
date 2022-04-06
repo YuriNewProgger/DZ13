@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "65Eu1HbXDAkpC2xXuMlB1Bc/OxJwOVAZjSukEOCx2xMYmmZpb11gXFVb7H4w8uG0MNI2SYSPSx6iz8yLyPOiIg==",
+  "dgSpecHash": "hhS7tKSzPKuzp1Bc3GYwhQP47dcaJC/Gy/1qeRKrvEYWVf22IHCkSZfq/3uhj2XlAwBSdOwbGTxj2kgYEolmvA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\InternetShopFrontend.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,7 @@
     "C:\\Users\\Dampel\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0-preview.1.22076.8\\microsoft.extensions.primitives.7.0.0-preview.1.22076.8.nupkg.sha512",
     "C:\\Users\\Dampel\\.nuget\\packages\\microsoft.jsinterop\\6.0.2\\microsoft.jsinterop.6.0.2.nupkg.sha512",
     "C:\\Users\\Dampel\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.2\\microsoft.jsinterop.webassembly.6.0.2.nupkg.sha512",
+    "C:\\Users\\Dampel\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
     "C:\\Users\\Dampel\\.nuget\\packages\\system.collections.immutable\\7.0.0-preview.1.22076.8\\system.collections.immutable.7.0.0-preview.1.22076.8.nupkg.sha512",
     "C:\\Users\\Dampel\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.0-preview.1.22076.8\\system.diagnostics.diagnosticsource.7.0.0-preview.1.22076.8.nupkg.sha512",
     "C:\\Users\\Dampel\\.nuget\\packages\\system.io.pipelines\\6.0.2\\system.io.pipelines.6.0.2.nupkg.sha512",

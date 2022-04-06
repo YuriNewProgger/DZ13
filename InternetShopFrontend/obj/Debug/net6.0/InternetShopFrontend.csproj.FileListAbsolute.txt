@@ -837,3 +837,7 @@ C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFronten
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFrontend\bin\Debug\net6.0\ShopAPI.pdb
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFrontend\obj\Debug\net6.0\build-gz\evo0uo4Z.gz
 C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFrontend\obj\Debug\net6.0\build-gz\0mQi1KBo.gz
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFrontend\bin\Debug\net6.0\wwwroot\_framework\Serilog.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFrontend\bin\Debug\net6.0\wwwroot\_framework\Serilog.dll.gz
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFrontend\bin\Debug\net6.0\Serilog.dll
+C:\Users\Dampel\Desktop\ШаГ ASP\classwork\EF\InternetShop\InternetShopFrontend\obj\Debug\net6.0\build-gz\Y+WrVlNa.gz

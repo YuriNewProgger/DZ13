@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MceCnICQ8lcFjkkQeFS27tCmAfEYuaY0ZkYTTOx3CVA=",
+  "Hash": "xmeTX/0P97xujVCWUOtirNymAelQ+I/FBCFspwz/bs4=",
   "Source": "InternetShopFrontend",
   "BasePath": "/",
   "Mode": "Root",
@@ -763,6 +763,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Dampel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.2\\runtimes\\browser-wasm\\lib\\net6.0\\netstandard.dll"
+    },
+    {
+      "Identity": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Serilog.dll",
+      "SourceId": "InternetShopFrontend",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Serilog.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Dampel\\.nuget\\packages\\serilog\\2.10.0\\lib\\netstandard2.1\\Serilog.dll"
     },
     {
       "Identity": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\bin\\Debug\\net6.0\\wwwroot\\_framework\\ShopAPI.dll",
@@ -6798,6 +6815,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.WebProxy.dll"
+    },
+    {
+      "Identity": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\obj\\Debug\\net6.0\\build-gz\\Y+WrVlNa.gz",
+      "SourceId": "InternetShopFrontend",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Serilog.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Serilog.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Serilog.dll"
     },
     {
       "Identity": "C:\\Users\\Dampel\\Desktop\\ШаГ ASP\\classwork\\EF\\InternetShop\\InternetShopFrontend\\obj\\Debug\\net6.0\\build-gz\\YDQpzXmI.gz",

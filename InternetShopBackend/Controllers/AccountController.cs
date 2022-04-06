@@ -1,10 +1,12 @@
-﻿using System.Net.Http.Headers;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using InternetShopBackend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
+using ILogger = Serilog.ILogger;
 
 namespace InternetShopBackend.Controllers;
 
@@ -15,22 +17,24 @@ public class AccountController : ControllerBase
     private IPasswordHasher<AccountRequestModel> _hasher;
     private UnitOfWork _uow;
     private readonly ServiceToken _serviceToken;
+    private ILogger logger;
 
-    public AccountController(IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher,
+    public AccountController(ILogger _logger, IAccountRepository _accountRepository, IPasswordHasher<AccountRequestModel> hasher,
         UnitOfWork UOW, ServiceToken serviceToken)
     {
         _hasher = hasher;
         _uow = UOW;
         _serviceToken = serviceToken;
+        logger = _logger;
     }
 
-    //[Authorize]
+    [FilterException]
+    [LogResourceFilter]
     [HttpGet("GetAccounts")]
     public IEnumerable<Account> GetAccount()
     {
-        //var striId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        //var acc = _uow.AccountRepository.GetAccountById(int.Parse(striId));
-        //Log.Information(acc.Name);
+        //Для теста кидал тут исключение
+        //throw new ValidationException();
         return _uow.AccountRepository.Get();
     }
 
@@ -56,6 +60,7 @@ public class AccountController : ControllerBase
         return Ok();
     }
 
+    [FilterException]
     [HttpPost("Login")]
     public ActionResult<string> Login(AccountRequestModel _accountRequestModel)
     {
