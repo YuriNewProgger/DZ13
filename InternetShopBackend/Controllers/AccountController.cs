@@ -28,9 +28,9 @@ public class AccountController : ControllerBase
     [HttpGet("GetAccounts")]
     public IEnumerable<Account> GetAccount()
     {
-        var striId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        var acc = _uow.AccountRepository.GetAccountById(int.Parse(striId));
-        Log.Information(acc.Name);
+        //var striId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //var acc = _uow.AccountRepository.GetAccountById(int.Parse(striId));
+        //Log.Information(acc.Name);
         return _uow.AccountRepository.Get();
     }
 

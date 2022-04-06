@@ -1,4 +1,5 @@
 ﻿using InternetShopBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ public class ProductController : ControllerBase
         context = _context;
     }
 
+    [Authorize]
     [HttpGet("GetProducts")]
     public IEnumerable<Product> GetProducts() => context.Products.ToList();
 
