@@ -22,6 +22,9 @@ var dbPath = "myapp.db";
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlite($"Data Source={dbPath}"));
 
+builder.Services.AddSingleton<ProfileFilter>();
+builder.Services.AddSingleton<FilterActionParams>();
+builder.Services.AddScoped<CheckAcc>();
 builder.Services.AddSingleton<LogResourceFilter>();
 builder.Services.AddSingleton<FilterException>();
 builder.Services.AddSingleton<ServiceToken>();

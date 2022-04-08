@@ -28,6 +28,8 @@ public class AccountController : ControllerBase
         logger = _logger;
     }
 
+    [TypeFilter(typeof(ProfileFilter))]
+    [TypeFilter(typeof(CheckAcc))]
     [FilterException]
     [LogResourceFilter]
     [HttpGet("GetAccounts")]
@@ -42,6 +44,8 @@ public class AccountController : ControllerBase
     }
 
 
+    [TypeFilter(typeof(FilterActionParams))]
+    [TypeFilter(typeof(CheckAcc))]
     [HttpPost("AddAccount")]
     public ActionResult<Account> AddAccount(AccountRequestModel accountRequestModel)
     {
@@ -63,11 +67,11 @@ public class AccountController : ControllerBase
         return Ok();
     }
 
-    [FilterException]
+    [TypeFilter(typeof(FilterActionParams))]
+    [TypeFilter(typeof(CheckAcc))]
     [HttpPost("Login")]
     public ActionResult<string> Login(AccountRequestModel _accountRequestModel)
     {
-        Console.WriteLine("In Authorization");
         Account account = _uow.AccountRepository.Get().Where(i => i.Login == _accountRequestModel.Login)
             .FirstOrDefault();
 

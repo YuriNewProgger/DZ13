@@ -30,6 +30,9 @@ namespace InternetShopBackend.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsBan")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -49,12 +52,13 @@ namespace InternetShopBackend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("IdAcc")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Baskets");
                 });
@@ -75,17 +79,6 @@ namespace InternetShopBackend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("InternetShopBackend.Models.Basket", b =>
-                {
-                    b.HasOne("InternetShopBackend.Models.Product", "SelectedProduct")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SelectedProduct");
                 });
 #pragma warning restore 612, 618
         }
