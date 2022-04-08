@@ -12,6 +12,6 @@ public class ProfileFilter : Attribute, IAsyncActionFilter
         sw.Start();
         await next();
         sw.Stop();
-        Log.Warning($"Profile/time spent{sw.Elapsed}");
+        Log.Warning($"Profile {context.Controller.ToString()} /time spent{sw.Elapsed}");
     }
 }
