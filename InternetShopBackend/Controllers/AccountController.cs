@@ -35,6 +35,9 @@ public class AccountController : ControllerBase
     {
         //Для теста кидал тут исключение
         //throw new ValidationException();
+        if (_uow.AccountRepository.Get().Count == 0)
+            throw new ValidationException();
+        
         return _uow.AccountRepository.Get();
     }
 
