@@ -13,5 +13,6 @@ public class ProfileFilter : Attribute, IAsyncActionFilter
         await next();
         sw.Stop();
         Log.Warning($"Profile {context.Controller.ToString()} /time spent{sw.Elapsed}");
+        //Warning для того чтобы по цвету в консоли определить данный фильтр
     }
 }
