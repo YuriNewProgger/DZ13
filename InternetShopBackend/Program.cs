@@ -1,6 +1,7 @@
 using System.Buffers;
 using System.IO.Pipelines;
 using System.Text;
+using InternetShopBackend;
 using InternetShopBackend.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpLogging;
@@ -83,6 +84,7 @@ app.UseCors(policy => policy
 
 app.MapControllers();
 app.UseHttpLogging();
+app.UseMiddleware<CheckBrowserMiddleware>();
 
 app.Use(async (HttpContext context, Func<Task> next) =>
     {

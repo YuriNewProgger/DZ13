@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetShopFrontend", "Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopAPI", "ShopAPI\ShopAPI.csproj", "{DA6DB7DD-5860-44AF-BA35-7F0F02ED2102}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetShopBack.Test", "InternetShopBack.Test\InternetShopBack.Test.csproj", "{D94E15FC-FEB0-4373-A261-93FF81371670}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{DA6DB7DD-5860-44AF-BA35-7F0F02ED2102}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA6DB7DD-5860-44AF-BA35-7F0F02ED2102}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA6DB7DD-5860-44AF-BA35-7F0F02ED2102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D94E15FC-FEB0-4373-A261-93FF81371670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D94E15FC-FEB0-4373-A261-93FF81371670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D94E15FC-FEB0-4373-A261-93FF81371670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D94E15FC-FEB0-4373-A261-93FF81371670}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
